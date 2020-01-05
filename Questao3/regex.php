@@ -1,10 +1,10 @@
 <?php
 
 $string = 
-'Melhor preço sem escalas R$ 1.367,10(1)
-Melhor preço com escalas R$ 994,10 (1)
-R$100.121.121,5
-1 - Incluindo todas as taxas.';
+"Melhor preço sem escalas R$ 1.367(1)
+Melhor preço com escalas R$ 994 (1)
+
+1 - Incluindo todas as taxas.";
 
 /**
  *  - (R\$\s?) - String que tenha um R seguido de um $ e com um espaço opcional
@@ -26,5 +26,5 @@ foreach ($matches[0] as $match => $value) {
   }  
 }
 
-echo 'Menor valor encontrado: R$ '.$menor;
+echo 'Menor valor encontrado: R$ <strong>'.$menor.'</strong>';
 ?>
