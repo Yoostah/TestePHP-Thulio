@@ -19,7 +19,7 @@ foreach ($matches[0] as $match => $value) {
   
   $valor = preg_replace('/R\$\s?+/', '', $value);
   //Remoção de pontos e troca de virgulas por pontos para comparação de valores
-  $valor = str_replace(',','.', str_replace('.','',$valor));
+  $valor = (float)str_replace(',','.', str_replace('.','',$valor));
 
   if($valor < $menor || $menor == 0 ){   
       $menor = $valor;
