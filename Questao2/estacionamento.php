@@ -71,7 +71,7 @@ class Estacionamento {
       echo '<strong>[ '.$veiculo->getVeiculo().' ]</strong> <font color="green">estacionou.</font><br>';
       echo $this->statusEstacionamento();
     }else{
-      echo 'Não existem vagas disponíveis para o veículo .<strong><font color="red">[ '.$veiculo->getVeiculo().' ]</font></strong><br>';
+      echo 'Não existem vagas disponíveis para o veículo <strong><font color="red">[ '.$veiculo->getVeiculo().' ]</font></strong><br>';
       echo $this->statusEstacionamento();
     }
   }
