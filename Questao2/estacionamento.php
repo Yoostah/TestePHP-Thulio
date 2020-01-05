@@ -32,7 +32,7 @@ class Estacionamento {
 
   public function estacionar($carro){
     array_push($this->carrosEstacionados, $carro);
-    echo $carro->getCarro().' estacionou.<br>';
+    echo '<strong>[ '.$carro->getCarro().' ]</strong> estacionou.<br>';
     echo $this->statusEstacionamento();
   }
 
@@ -44,7 +44,7 @@ class Estacionamento {
       echo 'O carro <strong>[ '. $carro->getCarro() .' ]</strong> saiu do estacionamento.<br>'; 
     }
     else
-      echo 'O carro não está estacionado aqui.<br>';  
+      echo 'O carro <strong>[ '. $carro->getCarro() .' ]</strong> não está estacionado aqui.<br>';  
 
       echo $this->statusEstacionamento();
   }
@@ -62,7 +62,7 @@ class Estacionamento {
       if ($value->getPlaca() === $carro->getPlaca())
         return $key;    
     }
-    
+
     return false;
   }
 
@@ -78,9 +78,6 @@ $carro4 = new Carro('Focus','FOC123');
 
 $estacionamento->estacionar($carro1);
 $estacionamento->estacionar($carro2);
-echo '<pre>';
-$estacionamento->status();
-echo '</pre>';
 
 $estacionamento->sair($carro2);
 $estacionamento->sair($carro3);
