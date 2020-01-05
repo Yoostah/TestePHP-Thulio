@@ -2,6 +2,7 @@
 
 /**A resolução foi feita em apenas um arquivo para facilitar a visualização.
  * O correto seria dividir cada classe em um arquivo separado e o fluxo instanciar as classes.
+ * A estilização foi feita utilizando tags depreciadas apenas para melhor visualização e simplificação.
  */
 
 class Veiculo {
