@@ -17,7 +17,18 @@ function calculoRaizes($a, $b=0, $c=0){
   }
 }
 
-echo calculoRaizes(5, -1, 0);
+//Raiz Completa
+echo calculoRaizes(1, -5, 6).'<br>';
+
+//Raiz Incompleta
+echo calculoRaizes(5, -1).'<br>';
+
+//Raiz Única
+echo calculoRaizes(5).'<br>';
+echo calculoRaizes(4, -4, 1).'<br>';
+
+//Raiz Inexistente
+echo calculoRaizes(5, 1, 6).'<br>';
 
 ?>
 
