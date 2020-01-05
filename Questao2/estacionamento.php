@@ -93,10 +93,6 @@ class Estacionamento {
     return '<font color="blue"><strong> [' .count($this->veiculosEstacionados).' carros estão estacionados no momento. || '.$this->vagasDisponiveis. ' vagas disponíveis. ]</strong></font><br><br>';
   }
 
-  public function status(){
-    print_r($this->veiculosEstacionados);
-  }
-
   protected function carroEstaEstacionado($veiculo){
     foreach ($this->veiculosEstacionados as $key => $value) {
       if ($value->getPlaca() === $veiculo->getPlaca())
@@ -128,10 +124,6 @@ $estacionamento->estacionar($carro4);
 $estacionamento->estacionar($caminhao1);
 $estacionamento->estacionar($caminhao2);
 $estacionamento->estacionar($caminhao3);
-//$estacionamento->sair($caminhao3);
-echo '<pre>';
-//$estacionamento->status();
-echo '</pre>';
 
 $estacionamento->estacionar($carro4);
 
