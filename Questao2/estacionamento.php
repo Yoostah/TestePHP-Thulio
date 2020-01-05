@@ -29,11 +29,22 @@ class Carro {
 class Estacionamento {
 
   private $carrosEstacionados = array();
+  private $vagasDisponiveis = 5;
+
+  private function getVagasDisponiveis(){
+    return $this->vagasDisponiveis;
+  }
 
   public function estacionar($carro){
-    array_push($this->carrosEstacionados, $carro);
-    echo '<strong>[ '.$carro->getCarro().' ]</strong> estacionou.<br>';
-    echo $this->statusEstacionamento();
+    if($this->getVagasDisponiveis()){
+      array_push($this->carrosEstacionados, $carro);
+      $this->vagasDisponiveis--;
+      echo '<strong>[ '.$carro->getCarro().' ]</strong> estacionou.<br>';
+      echo $this->statusEstacionamento();
+    }else{
+      echo 'Não existem vagas disponíveis.<br>';
+      echo $this->statusEstacionamento();
+    }
   }
 
   public function sair($carro){
@@ -41,6 +52,7 @@ class Estacionamento {
     
     if($carroExiste){
       array_splice($this->carrosEstacionados, $carroExiste, 1);
+      $this->vagasDisponiveis++;
       echo 'O carro <strong>[ '. $carro->getCarro() .' ]</strong> saiu do estacionamento.<br>'; 
     }
     else
@@ -50,7 +62,7 @@ class Estacionamento {
   }
 
   protected function statusEstacionamento(){
-    return count($this->carrosEstacionados).' carros estão estacionados no momento.<br><br>';
+    return '<strong> [' .count($this->carrosEstacionados).'/'.$this->vagasDisponiveis. ']</strong> carros estão estacionados no momento.<br><br>';
   }
 
   public function status(){
@@ -76,6 +88,10 @@ $carro3 = new Carro('Fiesta','FIE123');
 $carro4 = new Carro('Focus','FOC123');
 
 
+$estacionamento->estacionar($carro1);
+$estacionamento->estacionar($carro2);
+$estacionamento->estacionar($carro3);
+$estacionamento->estacionar($carro4);
 $estacionamento->estacionar($carro1);
 $estacionamento->estacionar($carro2);
 
