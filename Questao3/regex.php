@@ -14,5 +14,17 @@ R$100.121.121,5
  */
 preg_match_all('/(R\$\s?)+\d{1,3}(.?\d{3})*(\,\d\d)?/', $string ,$matches);
 
-var_dump($matches[0]);
+$menor = 0;
+foreach ($matches[0] as $match => $value) {
+  
+  $valor = preg_replace('/R\$\s?+/', '', $value);
+  //Remoção de pontos e troca de virgulas por pontos para comparação de valores
+  $valor = str_replace(',','.', str_replace('.','',$valor));
+
+  if($valor < $menor || $menor == 0 ){   
+      $menor = $valor;
+  }  
+}
+
+echo 'Menor valor encontrado: R$ '.$menor;
 ?>
