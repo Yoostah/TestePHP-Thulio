@@ -65,7 +65,7 @@ class Estacionamento {
   }
 
   public function estacionar($veiculo){
-    if($this->getVagasDisponiveis()){
+    if($this->getVagasDisponiveis() >= $veiculo->getVagasNecessarias()){
       array_push($this->veiculosEstacionados, $veiculo);
       $this->vagasDisponiveis -= $veiculo->getVagasNecessarias();
       echo '<strong>[ '.$veiculo->getVeiculo().' ]</strong> <font color="green">estacionou.</font><br>';
@@ -120,12 +120,12 @@ $caminhao3 = new Caminhao('IVECO','CAM789');
 $estacionamento->estacionar($carro1);
 $estacionamento->estacionar($carro2);
 $estacionamento->estacionar($carro3);
-$estacionamento->estacionar($carro4);
 
 $estacionamento->estacionar($caminhao1);
 $estacionamento->estacionar($caminhao2);
 $estacionamento->estacionar($caminhao3);
 
+$estacionamento->estacionar($carro5);
 $estacionamento->estacionar($carro4);
 
 $estacionamento->sair($carro2);
